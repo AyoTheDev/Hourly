@@ -28,6 +28,7 @@ class RocketsViewModel @Inject constructor(
     }
 
 
+    @ExperimentalCoroutinesApi
     fun loadRocketList(forceRefresh: Boolean = false) {
         event.value = Event.RocketList(true, null, null)
         jobs.add(launch(context = coroutineContextProvider.io) {
