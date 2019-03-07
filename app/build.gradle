@@ -6,6 +6,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     def globalConfiguration = rootProject.extensions.getByName("ext")
 
+    buildToolsVersion globalConfiguration["buildToolsVersion"]
     compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
     defaultConfig {
         applicationId globalConfiguration["androidApplicationId"]
@@ -35,14 +36,17 @@ dependencies {
 
     implementation project(':data')
 
+    implementation dependencies.kotlinExtensions
+    implementation dependencies.kotlinCoroutinesCore
+    implementation dependencies.kotlinCoroutinesAndroid
+    implementation dependencies.kotlin
+    implementation dependencies.kotlinCore
+
     implementation dependencies.supportRecyclerView
     implementation dependencies.supportDesign
     implementation dependencies.viewModel
     implementation dependencies.viewModelExtensions
     implementation dependencies.archRuntime
-    implementation dependencies.kotlinCoroutinesCore
-    implementation dependencies.kotlinCoroutinesAndroid
-    implementation dependencies.kotlin
     implementation dependencies.constraintLayout
     implementation dependencies.appCompat
     implementation dependencies.dagger

@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ayo.spacex.CoroutineContextProvider
 import com.ayo.data.local.SharedPrefs
-import com.ayo.data.remote.model.Rocket
+import com.ayo.data.local.model.Rocket
 import com.ayo.spacex.usecase.RocketsUseCase
 import kotlinx.coroutines.*
 import javax.inject.Inject

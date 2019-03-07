@@ -3,7 +3,7 @@ package com.ayo.spacex.di.component
 import android.app.Application
 import com.ayo.data.di.NetworkModule
 import com.ayo.spacex.App
-import com.ayo.spacex.di.module.LocalModule
+import com.ayo.data.di.LocalModule
 import com.ayo.spacex.di.module.RepositoryModule
 import com.ayo.spacex.di.module.UseCaseModule
 import com.ayo.spacex.di.builder.RocketsActivityBuilder

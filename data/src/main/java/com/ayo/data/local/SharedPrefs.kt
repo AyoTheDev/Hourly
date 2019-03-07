@@ -15,8 +15,4 @@ class SharedPrefs(context: Context) {
         get() = prefs.getBoolean(FIRST_LAUNCH, true)
         set(value) = prefs.edit().putBoolean(FIRST_LAUNCH, value).apply()
 
-    var cachedData: String?
-        get() = prefs.getString(ROCKET_CACHE, "")
-        set(value) = prefs.edit().putString(ROCKET_CACHE, value).apply()
-
 }

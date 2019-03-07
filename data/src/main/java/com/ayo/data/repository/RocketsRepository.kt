@@ -1,35 +1,35 @@
 package com.ayo.data.repository
 
-import com.ayo.data.local.SharedPrefs
-import com.ayo.data.remote.model.Rocket
+import com.ayo.data.local.RocketsDao
+import com.ayo.data.local.model.Rocket
 import com.ayo.data.remote.services.RocketsService
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 
 class RocketsRepository @Inject constructor(
-    private val remote: RocketsService,
-    private val local: SharedPrefs
+    private val remoteSource: RocketsService,
+    private val localSource: RocketsDao
 ) {
 
+    @ExperimentalCoroutinesApi
     suspend fun getRockets(forceRefresh: Boolean = false): List<Rocket>? {
-        return local.cachedData?.let {
-            if (it == "" || forceRefresh) {
-                val list = getRemoteData()
-                cacheData(list)
-                list
-            } else getCachedData(it)
+        return when {
+            forceRefresh -> getRemoteData()
+            !getLocalData().isNullOrEmpty() -> getLocalData()
+            else -> getRemoteData()
         }
     }
 
-    private fun cacheData(list: List<Rocket>?) {
-        local.cachedData = Gson().toJson(list)
-    }
+    private fun insertRockets(list: List<Rocket>) = localSource.insertRockets(list)
 
-    private suspend fun getRemoteData() = remote.getRockets()
+    @ExperimentalCoroutinesApi
+    private suspend fun getRemoteData() =
+        remoteSource.getRockets()?.apply { insertRockets(this) }
 
-    private fun getCachedData(data: String) =
-        Gson().fromJson<List<Rocket>>(data, object : TypeToken<List<Rocket>>() {}.type)
+    @ExperimentalCoroutinesApi
+    private suspend fun getLocalData() = localSource.getRocketsAsync().getCompleted()
+
+    //todo think about adding a caching policy
 
 
 }

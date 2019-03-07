@@ -3,11 +3,14 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
-
+androidExtensions {
+    experimental = true
+}
 android {
     def globalConfiguration = rootProject.extensions.getByName("ext")
 
     compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
+    buildToolsVersion globalConfiguration["buildToolsVersion"]
 
     defaultConfig {
         minSdkVersion globalConfiguration["androidMinSdkVersion"]
@@ -32,17 +35,23 @@ dependencies {
 
     def dependencies = rootProject.ext.apiDependencies
 
+    implementation dependencies.kotlinExtensions
+    implementation dependencies.kotlin
+    implementation dependencies.kotlinCore
+    implementation dependencies.kotlinCoroutinesAndroid
     implementation dependencies.kotlinCoroutinesCore
+
     implementation dependencies.retrofit
     implementation dependencies.retrofitGsonMap
     implementation dependencies.retrofitCoroutinesAdapter
     implementation dependencies.okHttp
     implementation dependencies.okHttpLogging
     implementation dependencies.gson
-    implementation dependencies.kotlin
     implementation dependencies.appCompat
     implementation dependencies.dagger
     implementation dependencies.daggerSupport
+    implementation dependencies.room
+    implementation dependencies.roomCompiler
     kapt dependencies.daggerProcessor
     kapt dependencies.daggerCompiler
 
