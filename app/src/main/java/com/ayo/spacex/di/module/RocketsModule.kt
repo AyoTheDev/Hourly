@@ -1,7 +1,7 @@
 package com.ayo.spacex.di.module
 
 import androidx.lifecycle.ViewModel
-import com.ayo.spacex.ui.RocketsViewModel
+import com.ayo.spacex.ui.rockets.RocketsViewModel
 import com.ayo.spacex.di.ViewModelKey
 import dagger.Binds
 import dagger.Module

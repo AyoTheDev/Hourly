@@ -1,4 +1,4 @@
-package com.ayo.spacex.ui
+package com.ayo.spacex.ui.rockets
 
 import com.ayo.spacex.R
 import android.os.Bundle
@@ -7,7 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ayo.spacex.ui.adapter.RocketListAdapter
+import com.ayo.spacex.ui.rockets.adapter.RocketListAdapter
 import com.ayo.spacex.ui.base.BaseActivityDagger
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*

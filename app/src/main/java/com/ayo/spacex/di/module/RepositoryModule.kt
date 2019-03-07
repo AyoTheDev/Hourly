@@ -1,4 +1,4 @@
-package com.ayo.spacex.di
+package com.ayo.spacex.di.module
 
 import android.content.Context
 import com.ayo.data.local.SharedPrefs

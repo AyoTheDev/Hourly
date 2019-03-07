@@ -3,12 +3,12 @@ package com.ayo.spacex.di.component
 import android.app.Application
 import com.ayo.data.di.NetworkModule
 import com.ayo.spacex.App
-import com.ayo.spacex.di.LocalModule
-import com.ayo.spacex.di.RepositoryModule
-import com.ayo.spacex.di.UseCaseModule
-import com.ayo.spacex.di.builder.RocketListActivityBuilder
+import com.ayo.spacex.di.module.LocalModule
+import com.ayo.spacex.di.module.RepositoryModule
+import com.ayo.spacex.di.module.UseCaseModule
+import com.ayo.spacex.di.builder.RocketsActivityBuilder
 import com.ayo.spacex.di.module.ViewModelModule
-import com.ayo.spacex.di.ApplicationModule
+import com.ayo.spacex.di.module.ApplicationModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -25,7 +25,7 @@ import javax.inject.Singleton
     RepositoryModule::class,
     UseCaseModule::class,
     ViewModelModule::class,
-    RocketListActivityBuilder::class
+    RocketsActivityBuilder::class
 ])
 interface ApplicationComponent : AndroidInjector<App> {
     @Component.Builder

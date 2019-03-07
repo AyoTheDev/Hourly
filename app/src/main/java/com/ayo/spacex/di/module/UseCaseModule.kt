@@ -1,4 +1,4 @@
-package com.ayo.spacex.di
+package com.ayo.spacex.di.module
 
 import com.ayo.spacex.CoroutineContextProvider
 import com.ayo.data.repository.RocketsRepository
@@ -18,8 +18,8 @@ class UseCaseModule {
 
     @Singleton
     @Provides
-    fun provideRocketsUseCase(rocketsRepository: RocketsRepository, coroutineContextProvider: CoroutineContextProvider): RocketsUseCase {
-        return RocketsUseCase(rocketsRepository, coroutineContextProvider)
+    fun provideRocketsUseCase(rocketsRepository: RocketsRepository): RocketsUseCase {
+        return RocketsUseCase(rocketsRepository)
     }
 
 

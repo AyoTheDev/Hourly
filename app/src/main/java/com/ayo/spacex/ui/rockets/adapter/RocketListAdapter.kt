@@ -1,11 +1,11 @@
-package com.ayo.spacex.ui.adapter
+package com.ayo.spacex.ui.rockets.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ayo.data.remote.model.Rocket
 import com.ayo.spacex.R
-import com.ayo.spacex.ui.adapter.viewholder.RocketViewHolder
+import com.ayo.spacex.ui.rockets.adapter.viewholder.RocketViewHolder
 import kotlinx.android.synthetic.main.item_launch.view.*
 
 class RocketListAdapter(private val listener: ItemClickListener?) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

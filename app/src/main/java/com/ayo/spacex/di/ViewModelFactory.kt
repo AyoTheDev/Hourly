@@ -1,4 +1,4 @@
-package com.ayo.spacex.di.module
+package com.ayo.spacex.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

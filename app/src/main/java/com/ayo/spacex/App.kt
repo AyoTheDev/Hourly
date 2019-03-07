@@ -1,9 +1,9 @@
 package com.ayo.spacex
 
 import com.ayo.data.di.NetworkModule
-import com.ayo.spacex.di.RepositoryModule
-import com.ayo.spacex.di.UseCaseModule
-import com.ayo.spacex.di.ApplicationModule
+import com.ayo.spacex.di.module.RepositoryModule
+import com.ayo.spacex.di.module.UseCaseModule
+import com.ayo.spacex.di.module.ApplicationModule
 import com.ayo.spacex.di.component.DaggerApplicationComponent
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
