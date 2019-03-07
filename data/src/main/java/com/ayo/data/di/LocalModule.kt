@@ -13,7 +13,7 @@ class LocalModule {
 
     @Provides
     fun provideDatabase(context: Context): AppDatabase {
-        return Room.databaseBuilder(context, AppDatabase::class.java, "${context.getString(R.string.app_name)}.db").build()
+        return Room.databaseBuilder(context, AppDatabase::class.java, "spaceX.db").build()
     }
 
     @Provides

@@ -14,20 +14,21 @@ class RocketsRepository @Inject constructor(
     @ExperimentalCoroutinesApi
     suspend fun getRockets(forceRefresh: Boolean = false): List<Rocket>? {
         return when {
-            forceRefresh -> getRemoteData()
-            !getLocalData().isNullOrEmpty() -> getLocalData()
-            else -> getRemoteData()
+            forceRefresh || getLocalData().isNullOrEmpty() -> getRemoteData()
+            else -> getLocalData()
         }
     }
 
-    private fun insertRockets(list: List<Rocket>) = localSource.insertRockets(list)
+    private suspend fun insertRockets(list: List<Rocket>) = localSource.insertRockets(list)
 
     @ExperimentalCoroutinesApi
     private suspend fun getRemoteData() =
-        remoteSource.getRockets()?.apply { insertRockets(this) }
+        remoteSource.getRockets()
+            ?.map { Rocket(rocketid = it.rocketid, name = it.name, country = it.country, description = it.description) }
+            ?.apply { insertRockets(this) }
 
     @ExperimentalCoroutinesApi
-    private suspend fun getLocalData() = localSource.getRocketsAsync().getCompleted()
+    private suspend fun getLocalData() = localSource.getRockets()
 
     //todo think about adding a caching policy
 

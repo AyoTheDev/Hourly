@@ -36,7 +36,7 @@ dependencies {
 
     implementation project(':data')
 
-    implementation dependencies.kotlinExtensions
+    //implementation dependencies.kotlinExtensions
     implementation dependencies.kotlinCoroutinesCore
     implementation dependencies.kotlinCoroutinesAndroid
     implementation dependencies.kotlin

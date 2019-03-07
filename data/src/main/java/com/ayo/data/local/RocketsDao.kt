@@ -8,12 +8,12 @@ import kotlinx.coroutines.Deferred
 interface RocketsDao {
 
     @Query("SELECT * FROM rockets")
-    fun getRocketsAsync(): Deferred<List<Rocket>?>
+    suspend fun getRockets(): List<Rocket>
 
-    @Query("SELECT * FROM rockets WHERE id =:id")
-    fun getRocket(id: Long?): Deferred<Rocket?>
+    @Query("SELECT * FROM rockets WHERE rocketid =:id")
+    suspend fun getRocket(id: Long?): Rocket
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertRockets(rockets: List<Rocket>)
+    suspend fun insertRockets(rockets: List<Rocket>)
 
 }

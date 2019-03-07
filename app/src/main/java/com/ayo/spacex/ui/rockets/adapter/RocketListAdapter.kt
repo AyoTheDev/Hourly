@@ -31,7 +31,9 @@ class RocketListAdapter(private val listener: ItemClickListener?) : RecyclerView
         val rocket = itemList[position]
         holder.itemView.ui_name.text = rocket.name
         holder.itemView.ui_country.text = rocket.country
-        holder.itemView.ui_engine_count.text = rocket.engines?.number?.toString()
+        //holder.itemView.ui_engine_count.text = rocket.engines?.number?.toString()
+
+        //todo create models for app layer
     }
 
     interface ItemClickListener {

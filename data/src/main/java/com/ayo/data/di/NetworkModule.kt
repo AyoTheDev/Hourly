@@ -2,7 +2,7 @@ package com.ayo.data.di
 
 import com.ayo.data.remote.endpoints.RocketsApi
 import com.ayo.data.remote.interceptors.NetworkResponseInterceptor
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.experimental.CoroutineCallAdapterFactory
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

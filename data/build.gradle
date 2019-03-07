@@ -35,7 +35,7 @@ dependencies {
 
     def dependencies = rootProject.ext.apiDependencies
 
-    implementation dependencies.kotlinExtensions
+    //implementation dependencies.kotlinExtensions
     implementation dependencies.kotlin
     implementation dependencies.kotlinCore
     implementation dependencies.kotlinCoroutinesAndroid
@@ -50,8 +50,9 @@ dependencies {
     implementation dependencies.appCompat
     implementation dependencies.dagger
     implementation dependencies.daggerSupport
-    implementation dependencies.room
-    implementation dependencies.roomCompiler
+    api dependencies.room
+    kapt dependencies.roomCompiler
+    implementation dependencies.roomCoroutines
     kapt dependencies.daggerProcessor
     kapt dependencies.daggerCompiler
 

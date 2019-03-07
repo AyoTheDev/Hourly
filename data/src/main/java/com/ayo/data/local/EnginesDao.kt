@@ -9,12 +9,12 @@ import kotlinx.coroutines.Deferred
 interface EnginesDao {
 
     @Query("SELECT * FROM engines")
-    fun getEnginesAsync(): Deferred<List<Engine>>
+    suspend fun getEnginesAsync(): List<Engine>
 
     @Query("SELECT * FROM engines WHERE id =:id")
-    fun getEngine(id: Long?): Deferred<Engine>
+    suspend fun getEngine(id: Long?): Engine
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertEngines(engines: List<Engine>)
+    suspend fun insertEngines(engines: List<Engine>)
 
 }

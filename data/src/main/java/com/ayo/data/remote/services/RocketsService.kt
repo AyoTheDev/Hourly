@@ -1,7 +1,7 @@
 package com.ayo.data.remote.services
 
 import com.ayo.data.remote.handler.ResponseHandler
-import com.ayo.data.local.model.Rocket
+import com.ayo.data.remote.model.Rocket
 import com.ayo.data.remote.endpoints.RocketsApi
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject

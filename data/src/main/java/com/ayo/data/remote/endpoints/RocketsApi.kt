@@ -1,6 +1,6 @@
 package com.ayo.data.remote.endpoints
 
-import com.ayo.data.local.model.Rocket
+import com.ayo.data.remote.model.Rocket
 import kotlinx.coroutines.*
 import retrofit2.Response
 import retrofit2.http.GET

@@ -36,7 +36,7 @@ class RocketsActivity : BaseActivityDagger() {
     }
 
     override fun onDestroy() {
-        viewModel?.cancelActiveJobs()
+        viewModel.cancelActiveJobs()
         snackBar?.apply { if (isShown) dismiss() }
         welcomeDialog?.apply { if (isShowing) dismiss() }
         super.onDestroy()
