@@ -10,13 +10,15 @@ import kotlinx.android.synthetic.main.item_launch.view.*
 
 class RocketListAdapter(private val listener: ItemClickListener?) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private  var itemList = listOf<Rocket>()
+    private var itemList = listOf<Rocket>()
 
     fun getItem(position: Int): Rocket = itemList[position]
 
-    fun update(list: List<Rocket>) {
-        itemList = list.toMutableList()
-        notifyDataSetChanged()
+    fun update(list: List<Rocket>?) {
+        list?.let {
+            itemList = it.toMutableList()
+            notifyDataSetChanged()
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

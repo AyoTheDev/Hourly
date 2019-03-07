@@ -5,7 +5,7 @@ import android.arch.lifecycle.LifecycleRegistry
 import android.arch.lifecycle.Observer
 import com.ayo.data.repository.RocketsRepository
 import com.ayo.spacex.ui.rockets.RocketsViewModel
-import com.ayo.spacex.utils.TestContextProvider
+import com.ayo.spacex.common.TestContextProvider
 import kotlinx.coroutines.*
 import org.junit.After
 import org.junit.Assert
@@ -30,7 +30,7 @@ class RocketsViewModelTest {
     @Mock
     private lateinit var prefs: SharedPrefs
     @Mock
-    private lateinit var eventObserver: Observer<RocketsViewModel.Event>
+    private lateinit var eventObserver: Observer<RocketsViewModel.UiEvent>
     @Mock
     lateinit var lifecycleOwner: LifecycleOwner
 
@@ -67,7 +67,7 @@ class RocketsViewModelTest {
         //THEN
         Assert.assertTrue(
                 underTest.event.value ==
-                        RocketsViewModel.Event.RocketList(false, repository.getRockets(), null)
+                        RocketsViewModel.UiEvent.RocketList(false, repository.getRockets(), null)
         )
     }
 
@@ -81,7 +81,7 @@ class RocketsViewModelTest {
 //        //THEN
 //        Assert.assertTrue(
 //                underTest.event.value ==
-//                        RocketsViewModel.Event.RocketList(true, null, null)
+//                        RocketsViewModel.UiEvent.RocketList(true, null, null)
 //        )
 //    }
 //
@@ -103,9 +103,9 @@ class RocketsViewModelTest {
 //        //THEN
 //        launch {
 //            Mockito.verify(repository).getRockets(forceRefresh)
-//            val captor = ArgumentCaptor.forClass(RocketsViewModel.Event::class.java)
+//            val captor = ArgumentCaptor.forClass(RocketsViewModel.UiEvent::class.java)
 //            Mockito.verify(eventObserver).onChanged(MockitoKotlinHelpers.capture(captor))
-//            //Assert.assertTrue(captor.value is RocketsViewModel.Event.Loading)
+//            //Assert.assertTrue(captor.value is RocketsViewModel.UiEvent.Loading)
 //
 //        }
 //

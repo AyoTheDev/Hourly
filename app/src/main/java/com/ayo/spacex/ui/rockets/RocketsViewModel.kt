@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import com.ayo.spacex.CoroutineContextProvider
 import com.ayo.spacex.SharedPrefs
 import com.ayo.data.db.model.Rocket
+import com.ayo.spacex.SingleLiveEvent
+import com.ayo.spacex.common.Resource
 import com.ayo.spacex.usecase.RocketsUseCase
 import kotlinx.coroutines.*
 import javax.inject.Inject
@@ -17,30 +19,27 @@ class RocketsViewModel @Inject constructor(
 ) : ViewModel(), CoroutineScope {
 
     override val coroutineContext: CoroutineContext = coroutineContextProvider.main
-    private val jobs = mutableListOf<Job>() //move to a base class
-    val event = MutableLiveData<Event>()
+    private val jobs = mutableListOf<Job>()
+
+    val event = MutableLiveData<UiEvent>()
+    val rocketsLiveData = SingleLiveEvent<Resource<List<Rocket>>>()
 
     init {
         if (sharedPrefs.isFirstLaunch) {
-            event.value = Event.ShowWelcomeMessage
+            event.value = UiEvent.ShowWelcomeMessage
             sharedPrefs.isFirstLaunch = false
         }
     }
 
-
     @ExperimentalCoroutinesApi
     fun loadRocketList(forceRefresh: Boolean = false) {
-        event.value = Event.RocketList(true, null, null)
+        rocketsLiveData.value = Resource.loading()
         jobs.add(launch(context = coroutineContextProvider.io) {
-            event.postValue(
+            rocketsLiveData.postValue(
                 try {
-                    Event.RocketList(
-                        false,
-                        rocketsUseCase.getRockets(forceRefresh),
-                        null
-                    )
+                    Resource.success(rocketsUseCase.getRockets(forceRefresh))
                 } catch (e: Exception) {
-                    Event.RocketList(false, null, e)
+                    Resource.error(msg = e.message ?: "Error", data = null)
                 }
             )
         })
@@ -50,13 +49,8 @@ class RocketsViewModel @Inject constructor(
         jobs.forEach { it.cancel() }
     }
 
-    /**
-     * To improve: here we could wrap the loading, error and rocket list data and then have the UI
-     * listen to that
-     */
-    sealed class Event {
-        data class RocketList(val loading: Boolean?, val data: List<Rocket>?, val exception: Exception?) : Event()
-        object ShowWelcomeMessage : Event()
+    sealed class UiEvent {
+        object ShowWelcomeMessage : UiEvent()
     }
 
 

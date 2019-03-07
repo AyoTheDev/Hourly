@@ -7,6 +7,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ayo.data.db.model.Rocket
+import com.ayo.spacex.common.Resource
+import com.ayo.spacex.common.Status
 import com.ayo.spacex.ui.rockets.adapter.RocketListAdapter
 import com.ayo.spacex.ui.base.BaseActivityDagger
 import com.google.android.material.snackbar.Snackbar
@@ -33,7 +36,7 @@ class RocketsActivity : BaseActivityDagger() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initView()
-        viewModel.event.observe(this, Observer { handleUiEvents(it) })
+        observeViewModel()
         viewModel.loadRocketList(false)
     }
 
@@ -44,17 +47,27 @@ class RocketsActivity : BaseActivityDagger() {
         super.onDestroy()
     }
 
-    private fun handleUiEvents(event: RocketsViewModel.Event?) {
-        when (event) {
-            is RocketsViewModel.Event.ShowWelcomeMessage -> showWelcomeDialog()
-            is RocketsViewModel.Event.RocketList -> {
-                event.data?.let { adapter?.update(it) }
-                event.loading?.let { ui_swipe_to_refresh.isRefreshing = it }
-                event.exception?.let { showSnackBar(it.message ?: "Error") }
+    private fun handleRocketListData(resource: Resource<List<Rocket>>) {
+        when(resource.status){
+            Status.SUCCESS -> {
+                adapter?.update(resource.data)
+                ui_swipe_to_refresh.isRefreshing = false
             }
+            Status.ERROR -> {
+                showSnackBar(resource.message ?: "Error")
+                ui_swipe_to_refresh.isRefreshing = false
+            }
+            Status.LOADING -> ui_swipe_to_refresh.isRefreshing = true
         }
     }
 
+    private fun handleUiEvents(event: RocketsViewModel.UiEvent?) {
+        when (event) {
+            is RocketsViewModel.UiEvent.ShowWelcomeMessage -> showWelcomeDialog()
+        }
+    }
+
+    @ExperimentalCoroutinesApi
     private fun initView() {
         adapter = RocketListAdapter(rocketListClickListener)
         ui_rocket_list.layoutManager = LinearLayoutManager(this)
@@ -62,6 +75,10 @@ class RocketsActivity : BaseActivityDagger() {
         ui_swipe_to_refresh.setOnRefreshListener { viewModel.loadRocketList(true) }
     }
 
+    private fun observeViewModel(){
+        viewModel.event.observe(this, Observer { handleUiEvents(it) })
+        viewModel.rocketsLiveData.observe(this, Observer { handleRocketListData(it) })
+    }
 
     private val rocketListClickListener = object : RocketListAdapter.ItemClickListener {
         override fun onClick(position: Int) {

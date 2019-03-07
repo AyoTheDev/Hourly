@@ -1,4 +1,4 @@
-package com.ayo.spacex.utils
+package com.ayo.spacex.common
 
 import org.mockito.ArgumentCaptor
 import org.mockito.Mockito
