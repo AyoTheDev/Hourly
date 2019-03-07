@@ -16,8 +16,8 @@ class RocketsViewModel @Inject constructor(
     sharedPrefs: SharedPrefs
 ) : ViewModel(), CoroutineScope {
 
-    private val jobs = mutableListOf<Job>() //move to a base class
     override val coroutineContext: CoroutineContext = coroutineContextProvider.main
+    private val jobs = mutableListOf<Job>() //move to a base class
     val event = MutableLiveData<Event>()
 
     init {
