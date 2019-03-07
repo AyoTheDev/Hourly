@@ -3,7 +3,6 @@ package com.ayo.spacex
 import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.LifecycleRegistry
 import android.arch.lifecycle.Observer
-import com.ayo.data.local.SharedPrefs
 import com.ayo.data.repository.RocketsRepository
 import com.ayo.spacex.ui.rockets.RocketsViewModel
 import com.ayo.spacex.utils.TestContextProvider

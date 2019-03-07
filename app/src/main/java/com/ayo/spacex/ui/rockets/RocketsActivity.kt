@@ -11,6 +11,7 @@ import com.ayo.spacex.ui.rockets.adapter.RocketListAdapter
 import com.ayo.spacex.ui.base.BaseActivityDagger
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 
 
@@ -27,6 +28,7 @@ class RocketsActivity : BaseActivityDagger() {
         ViewModelProviders.of(this, viewModelFactory).get(RocketsViewModel::class.java)
     }
 
+    @ExperimentalCoroutinesApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

@@ -3,7 +3,7 @@ package com.ayo.spacex.ui.rockets.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.ayo.data.local.model.Rocket
+import com.ayo.data.db.model.Rocket
 import com.ayo.spacex.R
 import com.ayo.spacex.ui.rockets.adapter.viewholder.RocketViewHolder
 import kotlinx.android.synthetic.main.item_launch.view.*

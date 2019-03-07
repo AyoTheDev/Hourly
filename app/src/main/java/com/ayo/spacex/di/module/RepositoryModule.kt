@@ -1,9 +1,9 @@
 package com.ayo.spacex.di.module
 
 import android.content.Context
-import com.ayo.data.local.RocketsDao
-import com.ayo.data.local.SharedPrefs
-import com.ayo.data.remote.services.RocketsService
+import com.ayo.data.db.RocketsDao
+import com.ayo.spacex.SharedPrefs
+import com.ayo.api.services.RocketsService
 import com.ayo.data.repository.RocketsRepository
 import dagger.Module
 import dagger.Provides

@@ -3,8 +3,8 @@ package com.ayo.spacex.ui.rockets
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ayo.spacex.CoroutineContextProvider
-import com.ayo.data.local.SharedPrefs
-import com.ayo.data.local.model.Rocket
+import com.ayo.spacex.SharedPrefs
+import com.ayo.data.db.model.Rocket
 import com.ayo.spacex.usecase.RocketsUseCase
 import kotlinx.coroutines.*
 import javax.inject.Inject

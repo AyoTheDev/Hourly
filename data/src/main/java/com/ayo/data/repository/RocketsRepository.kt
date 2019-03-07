@@ -1,8 +1,8 @@
 package com.ayo.data.repository
 
-import com.ayo.data.local.RocketsDao
-import com.ayo.data.local.model.Rocket
-import com.ayo.data.remote.services.RocketsService
+import com.ayo.data.db.RocketsDao
+import com.ayo.data.db.model.Rocket
+import com.ayo.api.services.RocketsService
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 

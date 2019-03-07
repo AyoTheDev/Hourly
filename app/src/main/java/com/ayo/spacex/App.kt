@@ -1,6 +1,6 @@
 package com.ayo.spacex
 
-import com.ayo.data.di.NetworkModule
+import com.ayo.api.di.NetworkModule
 import com.ayo.spacex.di.module.RepositoryModule
 import com.ayo.spacex.di.module.UseCaseModule
 import com.ayo.spacex.di.module.ApplicationModule
@@ -23,7 +23,7 @@ class App : DaggerApplication() {
         return DaggerApplicationComponent.builder()
                 .application(this)
                 .applicationModule(ApplicationModule(applicationContext))
-                //.localModule(LocalModule())
+                //.localModule(DatabaseModule())
                 .networkModule(NetworkModule())
                 .repositoryModule(RepositoryModule())
                 .useCaseModule(UseCaseModule())

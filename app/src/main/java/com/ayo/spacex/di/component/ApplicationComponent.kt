@@ -1,9 +1,8 @@
 package com.ayo.spacex.di.component
 
 import android.app.Application
-import com.ayo.data.di.NetworkModule
 import com.ayo.spacex.App
-import com.ayo.data.di.LocalModule
+import com.ayo.data.di.DatabaseModule
 import com.ayo.spacex.di.module.RepositoryModule
 import com.ayo.spacex.di.module.UseCaseModule
 import com.ayo.spacex.di.builder.RocketsActivityBuilder
@@ -20,8 +19,8 @@ import javax.inject.Singleton
 @Component(modules = [
     AndroidSupportInjectionModule::class,
     ApplicationModule::class,
-    LocalModule::class,
-    NetworkModule::class,
+    DatabaseModule::class,
+    com.ayo.api.di.NetworkModule::class,
     RepositoryModule::class,
     UseCaseModule::class,
     ViewModelModule::class,
@@ -33,8 +32,8 @@ interface ApplicationComponent : AndroidInjector<App> {
         @BindsInstance
         fun application(application: Application): Builder
         fun applicationModule(applicationModule: ApplicationModule): Builder
-        fun localModule(localModule: LocalModule): Builder
-        fun networkModule(networkModule: NetworkModule): Builder
+        fun localModule(databaseModule: DatabaseModule): Builder
+        fun networkModule(networkModule: com.ayo.api.di.NetworkModule): Builder
         fun repositoryModule(repositoryModule: RepositoryModule): Builder
         fun useCaseModule(useCaseModule: UseCaseModule): Builder
         fun build(): ApplicationComponent
