@@ -1,4 +1,4 @@
-package com.ayo.spacex
+package com.ayo.spacex.common
 
 import androidx.annotation.MainThread
 import androidx.annotation.Nullable

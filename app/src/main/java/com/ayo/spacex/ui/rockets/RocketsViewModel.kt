@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.ayo.spacex.CoroutineContextProvider
 import com.ayo.spacex.SharedPrefs
 import com.ayo.data.db.model.Rocket
-import com.ayo.spacex.SingleLiveEvent
+import com.ayo.spacex.common.SingleLiveEvent
 import com.ayo.spacex.common.Resource
 import com.ayo.spacex.usecase.RocketsUseCase
 import kotlinx.coroutines.*
