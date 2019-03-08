@@ -2,7 +2,7 @@ package com.ayo.data.repository
 
 import com.ayo.data.db.RocketsDao
 import com.ayo.api.services.RocketsService
-import com.ayo.data.common.toDataBaseModel
+import com.ayo.data.common.toData
 import com.ayo.data.common.toDomain
 import com.ayo.domain.model.RocketDomain
 import com.ayo.domain.repository.Repository
@@ -23,7 +23,7 @@ class RocketsRepository @Inject constructor(
     }
 
     override suspend fun addAll(list: List<RocketDomain>) =
-        localSource.insertRockets(list.map { rocket -> rocket.toDataBaseModel() })
+        localSource.insertRockets(list.map { rocket -> rocket.toData() })
 
     @ExperimentalCoroutinesApi
     private suspend fun getRemoteData() =

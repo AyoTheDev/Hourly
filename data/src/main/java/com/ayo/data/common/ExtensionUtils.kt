@@ -9,7 +9,7 @@ import com.ayo.domain.model.RocketDomain
 /**
  * Mappers for rocket data models
  */
-fun RocketDomain.toDataBaseModel(): RocketData {
+fun RocketDomain.toData(): RocketData {
     return RocketData(
         rocketid = this.rocketid, name = this.name,
         country = this.country, description = this.description
