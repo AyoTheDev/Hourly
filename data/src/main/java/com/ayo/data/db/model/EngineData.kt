@@ -11,14 +11,14 @@ import kotlinx.android.parcel.Parcelize
 @Entity(
     tableName = "engines",
     foreignKeys = [ForeignKey(
-        entity = Rocket::class,
+        entity = RocketData::class,
         parentColumns = arrayOf("rocketid"),
         childColumns = arrayOf("rocketid"),
         onDelete = ForeignKey.CASCADE
     )],
     indices = [Index(value = ["rocketid"])]
 )
-data class Engine(
+data class EngineData(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     val rocketid: Long? = 0,

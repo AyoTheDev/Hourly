@@ -2,9 +2,8 @@ package com.ayo.spacex.ui.rockets
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.ayo.spacex.CoroutineContextProvider
-import com.ayo.spacex.SharedPrefs
-import com.ayo.data.db.model.Rocket
+import com.ayo.spacex.common.CoroutineContextProvider
+import com.ayo.spacex.common.SharedPrefs
 import com.ayo.domain.model.RocketDomain
 import com.ayo.spacex.common.SingleLiveEvent
 import com.ayo.spacex.common.Resource

@@ -1,4 +1,4 @@
-package com.ayo.spacex
+package com.ayo.spacex.common
 
 import android.content.Context
 import android.content.SharedPreferences

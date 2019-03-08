@@ -7,7 +7,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ayo.data.db.model.Rocket
 import com.ayo.domain.model.RocketDomain
 import com.ayo.spacex.common.Resource
 import com.ayo.spacex.common.Status

@@ -8,7 +8,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 @Entity(tableName = "rockets", indices = [Index(value = ["name"], unique = true)])
-data class Rocket(
+data class RocketData(
     @PrimaryKey
     val rocketid: Long? = 0,
     val name: String? = null,
