@@ -1,8 +1,8 @@
 package com.ayo.spacex
 
 import com.ayo.api.di.NetworkModule
+import com.ayo.data.di.DatabaseModule
 import com.ayo.spacex.di.module.RepositoryModule
-import com.ayo.domain.di.UseCaseModule
 import com.ayo.spacex.di.module.ApplicationModule
 import com.ayo.spacex.di.component.DaggerApplicationComponent
 import dagger.android.AndroidInjector
@@ -23,7 +23,7 @@ class App : DaggerApplication() {
         return DaggerApplicationComponent.builder()
                 .application(this)
                 .applicationModule(ApplicationModule(applicationContext))
-                //.localModule(DatabaseModule())
+                .databaseModule(DatabaseModule())
                 .networkModule(NetworkModule())
                 .repositoryModule(RepositoryModule())
                 .useCaseModule(com.ayo.domain.di.UseCaseModule())
