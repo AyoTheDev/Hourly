@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ayo.data.db.model.Rocket
+import com.ayo.domain.model.RocketDomain
 import com.ayo.spacex.common.Resource
 import com.ayo.spacex.common.Status
 import com.ayo.spacex.ui.rockets.adapter.RocketListAdapter
@@ -47,7 +48,7 @@ class RocketsActivity : BaseActivityDagger() {
         super.onDestroy()
     }
 
-    private fun handleRocketListData(resource: Resource<List<Rocket>>) {
+    private fun handleRocketListData(resource: Resource<List<RocketDomain>>) {
         when(resource.status){
             Status.SUCCESS -> {
                 adapter?.update(resource.data)

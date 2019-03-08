@@ -35,6 +35,7 @@ dependencies {
     def dependencies = rootProject.ext.apiDependencies
 
     implementation project(':api')
+    implementation project(':domain')
     //implementation dependencies.kotlinExtensions
     implementation dependencies.kotlin
     implementation dependencies.kotlinCore

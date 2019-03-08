@@ -5,9 +5,10 @@ import androidx.lifecycle.ViewModel
 import com.ayo.spacex.CoroutineContextProvider
 import com.ayo.spacex.SharedPrefs
 import com.ayo.data.db.model.Rocket
+import com.ayo.domain.model.RocketDomain
 import com.ayo.spacex.common.SingleLiveEvent
 import com.ayo.spacex.common.Resource
-import com.ayo.spacex.usecase.RocketsUseCase
+import com.ayo.domain.usecase.RocketsUseCase
 import kotlinx.coroutines.*
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
@@ -22,7 +23,7 @@ class RocketsViewModel @Inject constructor(
     private val jobs = mutableListOf<Job>()
 
     val event = MutableLiveData<UiEvent>()
-    val rocketsLiveData = SingleLiveEvent<Resource<List<Rocket>>>()
+    val rocketsLiveData = SingleLiveEvent<Resource<List<RocketDomain>>>()
 
     init {
         if (sharedPrefs.isFirstLaunch) {

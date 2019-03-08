@@ -3,18 +3,18 @@ package com.ayo.spacex.ui.rockets.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.ayo.data.db.model.Rocket
+import com.ayo.domain.model.RocketDomain
 import com.ayo.spacex.R
 import com.ayo.spacex.ui.rockets.adapter.viewholder.RocketViewHolder
 import kotlinx.android.synthetic.main.item_launch.view.*
 
 class RocketListAdapter(private val listener: ItemClickListener?) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var itemList = listOf<Rocket>()
+    private var itemList = listOf<RocketDomain>()
 
-    fun getItem(position: Int): Rocket = itemList[position]
+    fun getItem(position: Int): RocketDomain = itemList[position]
 
-    fun update(list: List<Rocket>?) {
+    fun update(list: List<RocketDomain>?) {
         list?.let {
             itemList = it.toMutableList()
             notifyDataSetChanged()
@@ -33,9 +33,7 @@ class RocketListAdapter(private val listener: ItemClickListener?) : RecyclerView
         val rocket = itemList[position]
         holder.itemView.ui_name.text = rocket.name
         holder.itemView.ui_country.text = rocket.country
-        //holder.itemView.ui_engine_count.text = rocket.engines?.number?.toString()
-
-        //todo create models for app layer
+        holder.itemView.ui_engine_count.text = rocket.engines?.number?.toString()
     }
 
     interface ItemClickListener {

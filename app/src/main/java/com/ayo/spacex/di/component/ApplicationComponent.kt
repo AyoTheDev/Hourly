@@ -3,8 +3,8 @@ package com.ayo.spacex.di.component
 import android.app.Application
 import com.ayo.spacex.App
 import com.ayo.data.di.DatabaseModule
+import com.ayo.domain.di.UseCaseModule
 import com.ayo.spacex.di.module.RepositoryModule
-import com.ayo.spacex.di.module.UseCaseModule
 import com.ayo.spacex.di.builder.RocketsActivityBuilder
 import com.ayo.spacex.di.module.ViewModelModule
 import com.ayo.spacex.di.module.ApplicationModule
@@ -22,7 +22,7 @@ import javax.inject.Singleton
     DatabaseModule::class,
     com.ayo.api.di.NetworkModule::class,
     RepositoryModule::class,
-    UseCaseModule::class,
+    com.ayo.domain.di.UseCaseModule::class,
     ViewModelModule::class,
     RocketsActivityBuilder::class
 ])

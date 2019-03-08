@@ -13,6 +13,5 @@ data class Rocket(
     val rocketid: Long? = 0,
     val name: String? = null,
     val country: String? = null,
-    //val engines: Engine? = null,
     val description: String? = null
 ) : Parcelable

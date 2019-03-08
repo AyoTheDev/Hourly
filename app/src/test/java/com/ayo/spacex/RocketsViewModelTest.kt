@@ -67,7 +67,7 @@ class RocketsViewModelTest {
         //THEN
         Assert.assertTrue(
                 underTest.event.value ==
-                        RocketsViewModel.UiEvent.RocketList(false, repository.getRockets(), null)
+                        RocketsViewModel.UiEvent.RocketList(false, repository.getAll(), null)
         )
     }
 
@@ -102,7 +102,7 @@ class RocketsViewModelTest {
 //
 //        //THEN
 //        launch {
-//            Mockito.verify(repository).getRockets(forceRefresh)
+//            Mockito.verify(repository).getAll(forceRefresh)
 //            val captor = ArgumentCaptor.forClass(RocketsViewModel.UiEvent::class.java)
 //            Mockito.verify(eventObserver).onChanged(MockitoKotlinHelpers.capture(captor))
 //            //Assert.assertTrue(captor.value is RocketsViewModel.UiEvent.Loading)
