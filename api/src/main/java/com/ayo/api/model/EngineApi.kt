@@ -1,5 +1,5 @@
 package com.ayo.api.model
 
-data class Engine(
+data class EngineApi(
     val number: Int?
 )

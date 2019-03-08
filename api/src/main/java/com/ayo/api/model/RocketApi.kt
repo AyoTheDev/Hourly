@@ -1,10 +1,10 @@
 package com.ayo.api.model
 
 
-data class Rocket(
+data class RocketApi(
     val rocketid: Long?,
     val name: String?,
     val country: String?,
-    val engines: Engine?,
+    val engines: EngineApi?,
     val description: String?
 )
