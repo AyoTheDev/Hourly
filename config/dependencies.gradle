@@ -8,7 +8,7 @@ ext {
     //Application Versions
     androidVersionCode = 1
     androidVersionName = "1.0"
-    androidApplicationId = "com.ayo.spacex"
+    androidApplicationId = "com.ayo.hourly"
 
     //Library Versions
     buildToolsVersion = "28.0.3"
