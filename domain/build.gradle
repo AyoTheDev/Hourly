@@ -38,7 +38,7 @@ dependencies {
     implementation dependencies.kotlinCore
     implementation dependencies.kotlinCoroutinesAndroid
     implementation dependencies.kotlinCoroutinesCore
-
+    implementation dependencies.firebase
     implementation dependencies.dagger
     implementation dependencies.daggerSupport
     implementation dependencies.roomCoroutines

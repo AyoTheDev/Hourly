@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "30041117503",
+    "firebase_url": "https://hourly-330ab.firebaseio.com",
+    "project_id": "hourly-330ab",
+    "storage_bucket": "hourly-330ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30041117503:android:920a3ab25dfd08ec",
+        "android_client_info": {
+          "package_name": "com.ayo.hourly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30041117503-nvihcrb6jj8mr2atnhdd27sab0bf4h34.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ayo.hourly",
+            "certificate_hash": "4ad5726896cbf7b6c378d080ba6f5570f1a076fe"
+          }
+        },
+        {
+          "client_id": "30041117503-cc08jbt109aiv85kaoqkj644q0ehk6eq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBt_Bkml1xD7geWFjwKGuwNwhMWsGN_JXU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30041117503-cc08jbt109aiv85kaoqkj644q0ehk6eq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

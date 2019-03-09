@@ -1,4 +1,4 @@
-package com.ayo.data.db
+package com.ayo.data.db.dao
 
 import androidx.room.*
 import com.ayo.data.db.model.EngineData

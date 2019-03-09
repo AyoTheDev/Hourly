@@ -8,6 +8,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ayo.domain.model.RocketDomain
+import com.ayo.domain.model.UserDomain
+import com.ayo.domain.usecase.UserUseCase
 import com.ayo.hourly.common.Resource
 import com.ayo.hourly.common.Status
 import com.ayo.hourly.ui.rockets.adapter.RocketListAdapter
@@ -26,6 +28,7 @@ class RocketsActivity : BaseActivityDagger() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
+
 
     private val viewModel: RocketsViewModel by lazy {
         ViewModelProviders.of(this, viewModelFactory).get(RocketsViewModel::class.java)

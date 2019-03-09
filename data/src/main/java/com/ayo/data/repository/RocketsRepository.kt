@@ -1,6 +1,6 @@
 package com.ayo.data.repository
 
-import com.ayo.data.db.RocketsDao
+import com.ayo.data.db.dao.RocketsDao
 import com.ayo.api.services.RocketsService
 import com.ayo.data.common.toData
 import com.ayo.data.common.toDomain
@@ -14,6 +14,15 @@ class RocketsRepository @Inject constructor(
     private val localSource: RocketsDao
 ) : Repository<RocketDomain> {
 
+
+    override suspend fun add(data: RocketDomain): Long {
+        return -1L
+    }
+
+    override suspend fun get(id: Long): RocketDomain? {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     @ExperimentalCoroutinesApi
     override suspend fun getAll(forceRefresh: Boolean): List<RocketDomain>? {
         return when {
@@ -22,7 +31,7 @@ class RocketsRepository @Inject constructor(
         }
     }
 
-    override suspend fun addAll(list: List<RocketDomain>) =
+    override suspend fun addAll(list: List<RocketDomain>) : List<Long> =
         localSource.insertRockets(list.map { rocket -> rocket.toData() })
 
     @ExperimentalCoroutinesApi

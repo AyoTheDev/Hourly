@@ -13,6 +13,7 @@ ext {
     //Library Versions
     buildToolsVersion = "28.0.3"
     androidSupportLibraryVersion = '27.1.1'
+
     retrofitVersion = '2.4.0'
     gsonVersion = '2.8.2'
     okHttpVersion = '3.10.0'
@@ -29,6 +30,8 @@ ext {
     appcompatVersion = '1.1.0-alpha02'
 
     ktxVersion = '1.0.1'
+
+    firebaseVersion = '16.0.6'
 
     //todo probably don't need all these kotlin dependencies
     applicationDependencies = [
@@ -63,13 +66,16 @@ ext {
             daggerSupport            : "com.google.dagger:dagger-android-support:${daggerVersion}",
             daggerProcessor          : "com.google.dagger:dagger-android-processor:${daggerVersion}",
             daggerCompiler           : "com.google.dagger:dagger-compiler:${daggerVersion}",
-            timber                   : "com.jakewharton.timber:timber:${timberVersion}"
+            timber                   : "com.jakewharton.timber:timber:${timberVersion}",
+            firebase                 : "com.google.firebase:firebase-database:${firebaseVersion}"
 
     ]
 
     //todo rename
     apiDependencies = [
+            timber                   : "com.jakewharton.timber:timber:${timberVersion}",
 
+            firebase                 : "com.google.firebase:firebase-database:${firebaseVersion}",
             kotlinExtensions         : "org.jetbrains.kotlin:kotlin-android-extensions:${kotlinVersion}",
             kotlinCore               : "androidx.core:core-ktx:${ktxVersion}",
             kotlinCoroutinesCore     : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlinCoroutinesVersion}",
