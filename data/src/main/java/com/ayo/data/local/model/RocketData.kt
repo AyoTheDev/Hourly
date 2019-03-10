@@ -1,4 +1,4 @@
-package com.ayo.data.db.model
+package com.ayo.data.local.model
 
 import android.os.Parcelable
 import androidx.room.Entity

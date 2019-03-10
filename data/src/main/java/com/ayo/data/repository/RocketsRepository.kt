@@ -1,6 +1,6 @@
 package com.ayo.data.repository
 
-import com.ayo.data.db.dao.RocketsDao
+import com.ayo.data.local.dao.RocketsDao
 import com.ayo.api.services.RocketsService
 import com.ayo.data.common.toData
 import com.ayo.data.common.toDomain

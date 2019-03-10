@@ -1,8 +1,7 @@
-package com.ayo.data.db.model
+package com.ayo.data.local.model
 
 import android.os.Parcelable
 import androidx.room.Entity
-import androidx.room.ForeignKey
 import androidx.room.Index
 import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize

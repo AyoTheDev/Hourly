@@ -1,4 +1,4 @@
-package com.ayo.data.db.model
+package com.ayo.data.local.model
 
 import android.os.Parcelable
 import androidx.room.Entity
@@ -23,7 +23,7 @@ import kotlinx.android.parcel.Parcelize
             childColumns = arrayOf("employerId")
         )
     ],
-    indices = [Index(value = ["employerId"])]
+    indices = [Index(value = ["employerId"]), Index(value = ["userId"])]
 )
 data class ContractData(
     @PrimaryKey(autoGenerate = true)

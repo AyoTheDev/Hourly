@@ -54,7 +54,8 @@ dependencies {
     implementation dependencies.timber
     api dependencies.room
     kapt dependencies.roomCompiler
-    implementation dependencies.firebase
+    //implementation dependencies.firebase
+    implementation dependencies.firestore
     implementation dependencies.roomCoroutines
     kapt dependencies.daggerProcessor
     kapt dependencies.daggerCompiler

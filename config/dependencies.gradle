@@ -67,15 +67,14 @@ ext {
             daggerProcessor          : "com.google.dagger:dagger-android-processor:${daggerVersion}",
             daggerCompiler           : "com.google.dagger:dagger-compiler:${daggerVersion}",
             timber                   : "com.jakewharton.timber:timber:${timberVersion}",
-            firebase                 : "com.google.firebase:firebase-database:${firebaseVersion}"
-
     ]
 
     //todo rename
     apiDependencies = [
             timber                   : "com.jakewharton.timber:timber:${timberVersion}",
 
-            firebase                 : "com.google.firebase:firebase-database:${firebaseVersion}",
+            firebase                 : "com.google.firebase:firebase-core:${firebaseVersion}",
+            firestore                : "com.google.firebase:firebase-firestore:18.0.1",
             kotlinExtensions         : "org.jetbrains.kotlin:kotlin-android-extensions:${kotlinVersion}",
             kotlinCore               : "androidx.core:core-ktx:${ktxVersion}",
             kotlinCoroutinesCore     : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlinCoroutinesVersion}",

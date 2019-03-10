@@ -1,9 +1,9 @@
-package com.ayo.data.db
+package com.ayo.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.ayo.data.db.dao.*
-import com.ayo.data.db.model.*
+import com.ayo.data.local.dao.*
+import com.ayo.data.local.model.*
 
 @Database(
     entities = [

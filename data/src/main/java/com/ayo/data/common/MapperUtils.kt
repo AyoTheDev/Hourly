@@ -1,9 +1,8 @@
 package com.ayo.data.common
 
 import com.ayo.api.model.RocketApi
-import com.ayo.api.model.UserApi
-import com.ayo.data.db.model.RocketData
-import com.ayo.data.db.model.UserData
+import com.ayo.data.local.model.RocketData
+import com.ayo.data.local.model.UserData
 import com.ayo.domain.model.EngineDomain
 import com.ayo.domain.model.RocketDomain
 import com.ayo.domain.model.UserDomain
@@ -19,27 +18,12 @@ fun UserDomain.toData(): UserData {
     )
 }
 
-fun UserApi.toDomain(): UserDomain {
-    return UserDomain(
-        id = this.id, name = this.name,
-        email = this.email, password = this.password
-    )
-}
-
 fun UserData.toDomain(): UserDomain {
     return UserDomain(
         id = this.id, name = this.name,
         email = this.email, password = this.password
     )
 }
-
-fun UserDomain.toApi(id: Long): UserApi {
-    return UserApi(
-        id = id, name = this.name,
-        email = this.email, password = this.password
-    )
-}
-
 
 /**
  * Mappers for rocket data models

@@ -1,7 +1,7 @@
-package com.ayo.data.db.dao
+package com.ayo.data.local.dao
 
 import androidx.room.*
-import com.ayo.data.db.model.ContractData
+import com.ayo.data.local.model.ContractData
 
 @Dao
 interface ContractDao {

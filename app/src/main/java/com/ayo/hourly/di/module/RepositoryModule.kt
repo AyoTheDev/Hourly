@@ -1,9 +1,8 @@
 package com.ayo.hourly.di.module
 
 import com.ayo.api.services.RocketsService
-import com.ayo.api.services.UserService
-import com.ayo.data.db.dao.RocketsDao
-import com.ayo.data.db.dao.UserDao
+import com.ayo.data.local.dao.RocketsDao
+import com.ayo.data.local.dao.UserDao
 import com.ayo.data.repository.RocketsRepository
 import com.ayo.data.repository.UserRepository
 import com.ayo.domain.model.RocketDomain

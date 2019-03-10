@@ -1,8 +1,7 @@
-package com.ayo.data.db.dao
+package com.ayo.data.local.dao
 
 import androidx.room.*
-import com.ayo.data.db.model.FenceData
-import com.ayo.data.db.model.UserData
+import com.ayo.data.local.model.FenceData
 
 @Dao
 interface FenceDao {

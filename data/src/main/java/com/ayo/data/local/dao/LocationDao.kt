@@ -1,7 +1,7 @@
-package com.ayo.data.db.dao
+package com.ayo.data.local.dao
 
 import androidx.room.*
-import com.ayo.data.db.model.LocationData
+import com.ayo.data.local.model.LocationData
 
 @Dao
 interface LocationDao {
