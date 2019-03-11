@@ -20,17 +20,6 @@ class NetworkModule {
     }
 
     @Provides
-    @Named("hourly")
-    fun provideHourlyRetrofit(httpClient: OkHttpClient): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl(FIREBASE_URL)
-            .client(httpClient)
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(CoroutineCallAdapterFactory.invoke())
-            .build()
-    }
-
-    @Provides
     @Named("spacex")
     fun provideRocketsRetrofit(httpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()

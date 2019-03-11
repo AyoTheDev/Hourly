@@ -31,7 +31,7 @@ ext {
 
     ktxVersion = '1.0.1'
 
-    firebaseVersion = '16.0.6'
+    firebaseVersion = '16.0.7'
 
     //todo probably don't need all these kotlin dependencies
     applicationDependencies = [
