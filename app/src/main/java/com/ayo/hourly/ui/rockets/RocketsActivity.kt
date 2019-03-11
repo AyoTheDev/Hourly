@@ -12,6 +12,7 @@ import com.ayo.domain.model.UserDomain
 import com.ayo.domain.usecase.UserUseCase
 import com.ayo.hourly.common.Resource
 import com.ayo.hourly.common.Status
+import com.ayo.hourly.ui.base.BaseActivity
 import com.ayo.hourly.ui.rockets.adapter.RocketListAdapter
 import com.ayo.hourly.ui.base.BaseActivityDagger
 import com.google.android.material.snackbar.Snackbar
@@ -19,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 
-
+//todo move away from baseActivityDagger
 class RocketsActivity : BaseActivityDagger() {
 
     private var adapter: RocketListAdapter? = null
@@ -47,6 +48,7 @@ class RocketsActivity : BaseActivityDagger() {
         viewModel.cancelActiveJobs()
         snackBar?.apply { if (isShown) dismiss() }
         welcomeDialog?.apply { if (isShowing) dismiss() }
+        errorDialog?.apply { if (isShowing) dismiss() }
         super.onDestroy()
     }
 
@@ -57,7 +59,7 @@ class RocketsActivity : BaseActivityDagger() {
                 ui_swipe_to_refresh.isRefreshing = false
             }
             Status.ERROR -> {
-                showSnackBar(resource.message ?: "Error")
+                showErrorDialog(resource.message ?: "Error")
                 ui_swipe_to_refresh.isRefreshing = false
             }
             Status.LOADING -> ui_swipe_to_refresh.isRefreshing = true
@@ -104,6 +106,20 @@ class RocketsActivity : BaseActivityDagger() {
     private fun showSnackBar(msg: String) {
         snackBar = Snackbar.make(root_view, msg, Snackbar.LENGTH_LONG)
         snackBar?.show()
+    }
+
+
+    var errorDialog: AlertDialog? = null
+
+    fun showErrorDialog(msg: String) {
+        if (errorDialog == null) {
+            errorDialog = AlertDialog.Builder(this)
+                .setTitle("Error")
+                .setMessage(msg)
+                .setPositiveButton("dismiss", null)
+                .create()
+        }
+        errorDialog?.show()
     }
 
 
